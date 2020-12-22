@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <p>Paper, scisors, rock game - shall we begin?</p>
+
+<script>
+   
+    
+    let paper = "I am paper!";
+    let scissors ="I am scissors!";
+    let rock = "I am rock!";
+    let userValue;
+    let computerValue
+    let computerScore = 0;
+    let userScore = 0;
+    
+    
+    function inputUserValue() { //introduces the answer of player and set value for variable userValue as a paper/scissors/rock         
+       
+        let input = prompt("Shall we play a scissors, paper, rock game? Please insert one of this things.");
+        let lowerCaseInput = input.toLowerCase()
+        
+            if (lowerCaseInput==="paper") { return userValue = paper;}
+        else if (lowerCaseInput==="rock") { return userValue = rock;}
+        else if (lowerCaseInput==="scissors") { return userValue = scissors;}
+        else {alert("Provide correct item, buddy!");}
+    }
+
+    function makeComputerValue(){ // draws number between 1 and 3 and change it into rock/scissors/paper and assigns it to variable computerValue
+        let x= Math.floor(Math.random()*(4 - 1) ) + 1;
+        
+        if (x===1){ computerValue = rock;}
+        else if (x===2){ computerValue = scissors;}
+        else if (x===3){ computerValue = paper;}
+        return computerValue
+    }
+
+
+    
+    function singleGame() {   //takie user and computer value and compare and show who won and add point to score
+    
+        inputUserValue()
+        makeComputerValue()
+        if (userValue===scissors && computerValue===scissors) 
+        {alert("Computer have scissors. You tie. You both had scissors.");}
+        else if (userValue===scissors && computerValue===rock) 
+        {alert("Computer have rock. You lose. Rock beats scissors."); return computerScore++;}
+        else if (userValue===scissors && computerValue===paper) 
+        {alert("Computer have paper. You win. Scissors beats paper."); return userScore++;}
+        else if (userValue===rock && computerValue===rock) 
+        {alert("Computer have rock. You tie. You both had rock.");}
+        else if (userValue===rock && computerValue===scissors) 
+        {alert("Computer have scissors. You win. Rock beats scissors"); return userScore++;}
+        else if (userValue===rock && computerValue===paper) 
+        {alert("Computer have paper. You lose. Paper beats rock."); return computerScore++}
+        else if (userValue===paper && computerValue===paper) 
+        {alert("Computer have paper. You tie. You both had paper.");}
+        else if (userValue===paper && computerValue===scissors) 
+        {alert("Computer have scissors. You lose. Scissors beats paper."); return computerScore++}
+        else if (userValue===paper && computerValue===rock) 
+        {alert("Computer have rock. You win. Paper beats rock."); return userScore++;}
+        
+    }
+
+    
+    function setOfGames (){ //run single games 5 times and show score
+    for (let i=0; i<5; i++) {singleGame()}
+    if (computerScore<userScore) {alert("You lose. Your score is " + userScore + " and computer score is " + computerScore)}
+    else if (computerScore<userScore) {alert("You win. Your score is " + userScore + " and computer score is " + computerScore)}
+    else {alert("You tie. Your score is " + userScore + " and computer score is " + computerScore)}
+    }
+
+
+
+
+</script>
+</body>
+</html>
+<!-- 
+        
+    4.
+   
+
+    funkcja globalgame(){
+  
+        for (let i=1, i<5, i++)   {singlegame()}      //loopuje nam i dodaje wynik za kazda partie
+    
+        if (userscore<computerscore){
+        alert("Your score is" + userscore + "and computer score is" + computerScore. You lose.)}
+        else { alert("Your score is" + userscore + "and computer score is" + computerScore. You won!!!.)}
+
+        }
+
+
+    }
+    
+
+    0. trzy zmienne
+    1. wprowadzic przez gracza 1.papier 2.kamien 3.nozyce   
+    2. wylososwac komputerowi jedno z trzech
+    3. porownac z moim i zwrocic wynik
+    4. stowrzyc game ktora rozegra piec partii i zworic ostateczny wynik
+
+
+   0. 
+    globalne zmienne
+    let computerscore = 0
+    let userscore    = 0
+    let paper
+    let scisors
+    let rock
+
+      1.
+    funkcja uservalue prompt
+   stworzyc zmienna dla przechowania mojej wartosci uservalue
+   okienko dla uzytkownika do wprowadzenia wartosci propmt -
+   jesli wprowadzi if (prompt= paper/rock/scisors) return prompt else error-nieprawidłowa
+   funkcja przesyla wartosc do wartosci temporaryusevalue
+   if temporaryusevalue=rock {let uservalue=rock} itd.. stwarzamy zmienną ze string-u
+   return temporarysuervalue
+
+    2. 
+    funkcja randomcomputervalue
+     do losowania komputerowi liczby od 1 do 3
+    wylosuj 0-1. -math.random       integer math.floor
+    wynik zamknąć w zmiennej x
+    if (x=1) { let computervalue=paper} else if (x=2) { let computervalue=scisors} else { let computervalue=rock}
+    return computervalue
+
+    (tu mamy juz uv-uservalue i cv-computervalue okreslone)
+    
+    3.
+    funkcja singlegame (){
+        uservalue()
+        computervalue()
+    jesli (uservalue=== nozyczki && computervalue=== kamien) { to wyswietl(przegrales bo..) i return wk++}
+    jesli gracz ma nozyczki && komputer papier to wyswietl wygrales bo.. i retutn wg++
+    jesli gracz ma nozyczki && komputer nozyczki to wyswietl remis bo..
+    jesli gracz ma papier && komputer kamien to wyswietl wygrales bo.. wg++
+    jesli gracz ma papier && komputer nozyczki to wyswietl przegrales wk++
+    jesli gracz ma papier && komputer papier to wyswietl remis
+    jesli gracz ma kamien && komputer kamien to wyswietl remis
+    jesli gracz ma kamien && komputer nozyczki to wyswietl wygrales wg++
+    jesli gracz ma kamien && komputer papier to wyswietl przegrales wk++
+
+
+-->
+
+
+
